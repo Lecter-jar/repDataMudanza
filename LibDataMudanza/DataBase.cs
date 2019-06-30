@@ -28,12 +28,12 @@ namespace LibDataMudanza
                 cmd.Parameters.Add("@Apellidos", SqlDbType.VarChar).Value = objCotizacion.Apellidos;
                 cmd.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = objCotizacion.Fono;
                 cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = objCotizacion.Email;
-                cmd.Parameters.Add("@Fecha_mudanza", SqlDbType.Date).Value = objCotizacion.FechaMudanza;
+                cmd.Parameters.Add("@Fecha_De_Mudanza", SqlDbType.DateTime).Value = objCotizacion.FechaMudanza;
                 cmd.Parameters.Add("@Horario", SqlDbType.VarChar).Value = objCotizacion.Horario;
                 cmd.Parameters.Add("@Origen", SqlDbType.VarChar).Value = objCotizacion.Origen;
                 cmd.Parameters.Add("@Destino", SqlDbType.VarChar).Value = objCotizacion.Destino;
-                cmd.Parameters.Add("@Servicio_adicional", SqlDbType.VarChar).Value = objCotizacion.ServicioAdicional;
-                cmd.Parameters.Add("@Fecha_cotizacion", SqlDbType.DateTime).Value = objCotizacion.FechaCotizacion;
+                cmd.Parameters.Add("@Servicios_adicionales", SqlDbType.VarChar).Value = objCotizacion.ServicioAdicional;
+                cmd.Parameters.Add("@Fecha_Creacion_Cotizacion", SqlDbType.DateTime).Value = objCotizacion.FechaCotizacion;
 
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -62,8 +62,6 @@ namespace LibDataMudanza
                 cmd.Connection = new SqlConnection(strConn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "pa_listarComunas";
-
-                cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = objComuna.Nombre;
 
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
